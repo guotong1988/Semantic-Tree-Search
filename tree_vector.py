@@ -1,7 +1,6 @@
-
 import numpy as np
 from scipy.spatial.distance import cosine
-
+from sklearn.cluster import KMeans
 import json
 
 cosine_count = 0
@@ -207,7 +206,7 @@ def build_tokenizer():
 
 print("begin kmeans")
 cluster_num = 10
-from sklearn.cluster import KMeans
+
 X = np.array(all_embeddings)
 kmeans = KMeans(n_clusters=cluster_num, random_state=0).fit(X)
 class_list = kmeans.labels_
